@@ -1,0 +1,31 @@
+# ✈️ Airline Customer Segmentation (Clustering)
+
+### 📌 Overview
+This project uses Unsupervised Machine Learning to identify distinct customer groups in an airline loyalty program. By analyzing spending behavior and flight frequency, we segmented the user base into 5 actionable personas for marketing optimization.
+
+**Goal:** Transform raw transactional data into "Customer Personas" to improve retention and targeting.
+
+###  Tech Stack
+* **SQL (SQLite):** Feature Engineering (Calculating `Engagement Score` and `Points Efficiency`).
+* **Python (Scikit-Learn):** K-Means Clustering, StandardScaler, PCA.
+* **Visualization:** Matplotlib/Seaborn for "Elbow Plots" and Cluster Visualization.
+
+###  Key Insights (The 5 Personas)
+Using the **Elbow Method**, we determined `k=5` was the optimal number of clusters.
+
+| Segment | Behavior Profile | Recommendation |
+| :--- | :--- | :--- |
+| **The VIP Whales** | Top 1% Balance (537k avg). | Retention (concierge service). |
+| **The Road Warriors** | Highest Engagement Score (198). | Upsell (Credit Card upgrades). |
+| **The Points Hackers** | High Balance, Low Activity. | Cost Reduction (limit bonus payouts). |
+| **The Passive Savers** | Good Balance, Low Activity. | Activation (marketing push). |
+| **The Newbies** | Low Balance, Low Activity. | Growth (onboarding offers). |
+
+###  Key Code Snippet (SQL Feature Engineering)
+We moved logic *upstream* into the database to improve performance:
+```sql
+SELECT 
+    Balance,
+    ("Flight_Trans_12" * 10) + ("Bonus_Trans") AS Overall_Engagement_Score
+FROM passengers
+WHERE Days_Since_Enroll > 365
