@@ -1,0 +1,63 @@
+# Cookie Cats: A/B Testing for Mobile Game Retention
+
+### Statistical Analysis of Player Behavior and Gate Placement
+
+---
+
+## Project Overview
+
+This project analyzes the results of an A/B test for the mobile puzzle game, Cookie Cats, to determine the impact of moving the first "gate"—a point where players are forced to wait or make a purchase—from Level 30 to Level 40. The primary objective is to measure how this change affects player retention at 1-day and 7-day intervals.
+
+## Dataset Description
+
+The dataset contains records for 90,189 players who installed the game during the testing period.
+
+* **userid**: A unique identification number for each player.
+* **version**: The assigned group: control (`gate_30`) or test (`gate_40`).
+* **sum_gamerounds**: The total number of game rounds played within the first 14 days of installation.
+* **retention_1**: A boolean indicating if the player returned 1 day after installation.
+* **retention_7**: A boolean indicating if the player returned 7 days after installation.
+
+## Technologies Used
+
+* **Python 3.11**.
+* **Pandas & NumPy**: For data manipulation, cleaning, and statistical calculations.
+* **Matplotlib**: For exploratory data visualization and plotting bootstrapping distributions.
+
+## Methodology
+
+### 1. Data Cleaning
+
+Initial inspection identified a significant outlier ("Super Whale") who played 49,854 rounds. To ensure statistical accuracy, the data was filtered to include only users with fewer than 3,000 game rounds.
+
+### 2. Exploratory Data Analysis
+
+The users were distributed across the two versions as follows:
+
+* **Gate 30**: 44,699 users.
+* **Gate 40**: 45,489 users.
+
+Raw retention rates showed a slight advantage for the Level 30 gate in both 1-day (0.59% difference) and 7-day (0.82% difference) metrics.
+
+### 3. Bootstrapping Analysis
+
+To determine if these small differences were statistically significant rather than the result of chance, a bootstrapping simulation was performed with 500 iterations. This involved repeatedly sampling the dataset with replacement to calculate the distribution of the retention differences between the two groups.
+
+## Key Findings & Verdict
+
+The simulation provided the following probabilities that retention is higher when the gate is at Level 30:
+
+* **Probability for 1-Day Retention**: 95.20%.
+* **Probability for 7-Day Retention**: 99.80%.
+
+**Conclusion**: The evidence strongly suggests that 7-day retention is higher when the first gate is encountered earlier at Level 30. To maximize long-term player engagement, the gate should not be moved to Level 40.
+
+---
+
+## Author
+
+**Srihari Balaji**
+
+* Student at UC Santa Cruz pursuing a career in Data Science.
+* Experienced in building data science portfolios involving SQL, Python, and statistical concepts like A/B testing.
+
