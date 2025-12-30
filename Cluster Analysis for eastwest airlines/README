@@ -1,6 +1,6 @@
-# ✈️ Airline Customer Segmentation (Clustering)
+#  Airline Customer Segmentation (Clustering)
 
-### 📌 Overview
+###  Overview
 This project uses Unsupervised Machine Learning to identify distinct customer groups in an airline loyalty program. By analyzing spending behavior and flight frequency, we segmented the user base into 5 actionable personas for marketing optimization.
 
 **Goal:** Transform raw transactional data into "Customer Personas" to improve retention and targeting.
