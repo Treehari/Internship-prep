@@ -1,1 +1,76 @@
 
+
+
+# Super Smash Bros. Ultimate Elo/Glicko Ranking System
+
+**Project Type:** Collaborative Group Project (3 Members)
+**Tools:** Microsoft Excel, Google Sheets, Mathematical Modeling
+
+###  Project Overview
+
+This project is a comprehensive data collection and ranking system designed to track competitive *Super Smash Bros. Ultimate* performance within a local gaming club.
+
+Developing this system was a **shared effort among three equal contributors**. Over the course of two years, our team collectively managed the data lifecycle—from manual data entry of raw match logs to the implementation of complex statistical formulas for the leaderboard.
+
+###  The Team & Contributions
+
+This project was built through the equal collaboration of 3 team members. Workload was distributed evenly across the following areas:
+
+* 
+**Data Engineering:** Co-managed a relational database of **500+ match records**, ensuring consistent logging of stages, stocks, and character matchups.
+
+
+* **Algorithm Implementation:** Collaboratively researched and implemented Elo and Glicko rating formulas in a spreadsheet environment without external plugins.
+* **Quality Assurance:** Shared responsibility for "data hygiene," regularly auditing logs to identify and correct data entry errors to maintain leaderboard integrity.
+
+**Contributors:**
+
+* **Srihari Balaji**
+* **Akash Abedin**
+* **Aneesh Singh**
+
+---
+
+### 📊 The Data
+
+We tracked granular match data to ensure the rankings reflected true skill. The dataset includes:
+
+* 
+**Match Metadata:** Date, Location (Tournament vs. Local), and Round type.
+
+
+* 
+**Game Variables:** Characters used, Stage selection (e.g., Battlefield, Final Destination), and Winner/Loser identification.
+
+
+* 
+**Performance Metrics:** Stock count remaining, JV (perfect games), and TKOs.
+
+
+
+*(Recommended: Insert a screenshot of your "Data" tab here)*
+
+---
+
+###  The Math (Elo & Glicko Implementation)
+
+Instead of using pre-built libraries, we manually engineered the rating logic using advanced spreadsheet formulas.
+
+**Key Mathematical Parameters:**
+We configured specific variables to control the volatility and inflation of the ranking system:
+
+* **Divisor:** `400`
+* **K-Factor:** `8` (Determines how much a player's rating changes after a single match)
+* **C-Value:** `73.065` (Constant derived to govern the time-based Rating Deviation)
+* **Volatility (q):** `0.00576`
+
+**Algorithm Logic:**
+The system calculates a new rating () based on the old rating (), the actual score (), and the expected score ():
+
+
+
+
+###  The Results
+
+The system automatically generates a live leaderboard that sorts players by their calculated Rating and displays Win/Loss records and average stock differentials.
+
