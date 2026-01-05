@@ -1,39 +1,44 @@
-#  Healthcare Risk Engine: Predictive Cost Modeling
+# Healthcare Risk Engine: Predictive Cost Modeling
 
-###  Overview
-This project focuses on building a machine learning pipeline to predict individual medical insurance costs based on demographic and health factors. By leveraging historical patient data, the model identifies key cost drivers and provides accurate risk assessments for new patients.
+### Overview
+This project builds an end-to-end machine learning pipeline to predict individual medical insurance costs based on demographic and health factors. It goes beyond simple analysis by deploying the final model as an **interactive web application** that can be run locally or in a Docker container.
 
-**Goal:** Transform raw data into an actionable pricing engine using Supervised Learning.
+**Goal:** Transform raw patient data into an actionable real-time pricing engine.
 
-###  Tech Stack
-* **Language:** Python
-* **Libraries:** Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn
-* **Techniques:** Exploratory Data Analysis (EDA), Feature Engineering (One-Hot Encoding), Regression Modeling.
+### Tech Stack
+* **Machine Learning:** Scikit-Learn (Random Forest, Linear Regression), Pandas, NumPy.
+* **Visualization:** Matplotlib, Seaborn.
+* **Deployment:** Streamlit (Web App), Docker (Containerization).
 
 ### Key Results
-We compared two modeling approaches to determine the best predictor for insurance charges:
+We compared two models to find the most accurate predictor:
 
 | Model | R² Score (Accuracy) | RMSE (Avg Error) | Verdict |
 | :--- | :--- | :--- | :--- |
 | **Linear Regression** | 0.8069 | ~$5,956 | Good baseline, but missed non-linear patterns. |
-| **Random Forest** | **0.8798** | **~$4,700** | **Winner.** Captures complex interactions (e.g., Age + Smoker). |
+| **Random Forest** | **0.8798** | **~$4,700** | **Winner.** Captures interactions (e.g., Smoker + High BMI). |
 
-**Top Cost Drivers Identified:**
-1.  **Smoker Status:** The single strongest predictor of high costs.
-2.  **BMI:** Correlation with cost increases significantly for smokers.
-3.  **Age:** Linear increase in base costs over time.
+**Top Cost Drivers:**
+1.  **Smoker Status:** The #1 predictor of high costs.
+2.  **BMI:** High BMI *multiplies* the cost risk for smokers (non-linear relationship).
+3.  **Age:** Steady linear increase in base costs.
 
-###  Usage
-The project includes an interactive predictor function that allows users to input raw data and receive an immediate cost estimate.
+---
 
-```python
-# Example Usage
-cost = predict_my_cost(
-    age=30,
-    sex='male',
-    bmi=25.5,
-    children=0,
-    smoker='yes',
-    region='southwest'
-)
-print(f"Estimated Bill: ${cost}")
+### How to Run the App
+You can run the predictor using **Streamlit** (Local) or **Docker** (Containerized).
+
+#### Option 1: Run Locally
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+2. Launch Web App
+streamlit run app.py
+3. Open your browser to http://localhost:8501
+
+#### Option 2: Run with Docker
+1. Build the image
+docker build -t healthcare-app .
+
+2. Run the container
+docker run -p 8501:8501 healthcare-app
