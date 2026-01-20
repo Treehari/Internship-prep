@@ -1,0 +1,4 @@
+num_masses 8
+alpha 0.8
+C 0.5
+run_name fput_n-8_alpha-0.8_C0.5
