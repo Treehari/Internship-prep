@@ -8,7 +8,7 @@ This project uses Unsupervised Machine Learning to identify distinct customer gr
 ###  Tech Stack
 * **SQL (SQLite):** Feature Engineering (Calculating `Engagement Score` and `Points Efficiency`).
 * **Python (Scikit-Learn):** K-Means Clustering, StandardScaler, PCA.
-* **Visualization:** Matplotlib/Seaborn for "Elbow Plots" and Cluster Visualization.
+* **Visualization:** Matplotlib/Seaborn for "Elbow Plots" and Cluster Visualization, Tableu for professional charts
 
 ###  Key Insights (The 5 Personas)
 Using the **Elbow Method**, we determined `k=5` was the optimal number of clusters.

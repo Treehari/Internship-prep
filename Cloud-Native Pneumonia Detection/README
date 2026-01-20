@@ -1,0 +1,47 @@
+# Medical Imaging and Deep Learning: Pneumonia Detection on NIH Chest X-rays
+
+This repository features a research-oriented deep learning workflow for medical image classification. The project focuses on utilizing DenseNet121 for automated pneumonia detection, integrated with Explainable AI (XAI) techniques to ensure clinical transparency.
+
+## Key Technical Highlights
+
+* **Medical Open Network for AI (MONAI):** Leveraged MONAI’s specialized transforms (ScaleIntensity, Resize, EnsureType) for high-performance medical image preprocessing.
+* **Explainable AI (XAI) with Captum:** Implemented Layer Grad-CAM to visualize model attention maps, allowing clinicians to verify that the model is focusing on relevant pulmonary regions rather than artifacts.
+* **Cloud-Native Data Pipeline:** Engineered a streaming dataset class (NIHDataset) that interacts directly with Google Cloud Storage (GCS), enabling the processing of large-scale medical datasets without the need for massive local storage.
+* **Scalable Architecture:** Built on the DenseNet121 architecture, known for its efficiency in feature propagation and performance in radiologic image classification.
+
+## Tech Stack
+
+* **Frameworks:** PyTorch, MONAI
+* **Interpretability:** Captum (Grad-CAM)
+* **Cloud Infrastructure:** Google Cloud Storage (GCS), BigQuery
+* **Data Processing:** Pandas, NumPy, PIL
+* **Visualization:** Matplotlib
+
+## Dataset: NIH Chest X-ray
+
+The model utilizes the NIH Chest X-ray dataset, a public dataset containing over 100,000 de-identified images. The pipeline is configured to stream data directly from the public Google Cloud Storage bucket, ensuring a seamless connection between cloud data and local training.
+
+## Model and Training
+
+* **Architecture:** DenseNet121
+* **Optimizer:** Adam (lr=1e-4)
+* **Loss Function:** CrossEntropyLoss
+* **Interpretability:** Grad-CAM attention maps are generated for every prediction to provide spatial evidence for the classification.
+
+## Visualizing Interpretability
+
+The integration of Grad-CAM (Gradient-weighted Class Activation Mapping) is a critical component of this research. It highlights the specific pixels in the X-ray that most influenced the model's decision, bridging the gap between "black box" deep learning and clinical trust.
+
+
+1. **Environment:** Ensure you have access to a GCP project for GCS data streaming.
+2. **Dependencies:**
+```bash
+pip install google-cloud-storage torch monai captum pandas matplotlib
+
+```
+
+
+3. **Run Research:** Execute the Jupyter Notebook `Pneumonia_Detection_Research.ipynb` to initialize the GCS data index, train the model, and generate interpretability heatmaps.
+
+---
+

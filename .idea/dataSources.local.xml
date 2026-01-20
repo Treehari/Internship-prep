@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="DS-253.29346.157">
+    <data-source name="@www.googleapis.com/bigquery/v2" uuid="1439c039-84a4-48fc-95eb-5c403b2c7c3a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="BIGQUERY" />
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>BigQuery.ServiceAccount</auth-provider>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
