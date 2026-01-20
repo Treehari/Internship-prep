@@ -1,4 +1,0 @@
-num_masses 32
-alpha -3.2
-C 0.5
-run_name fput_n-32_alpha-neg3.2_C0.5
