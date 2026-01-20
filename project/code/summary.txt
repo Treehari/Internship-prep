@@ -1,0 +1,22 @@
+Summary:
+
+This project investigates the Fermi-Pasta-Ulam-Tsingou problem, which involves solving a coupled system 
+of second-order ordinary differential equations representing point masses connected by springs with a quadratic nonlinearity.
+I will model the system using the leapfrog finite difference method implemented in Fortran to analyze both linear and nonlinear behaviors.
+Finally, I will visualize the numerical results using Python and interpret the findings in a written report.
+
+Action Plan:
+1. Create the required modular Fortran files, including utility.f90, problemSetup.f90, leapfrog.f90,
+output.f90, and the main driver fput.f90, along with a Makefile for compilation
+
+2. Code the leapfrog solver for the linear system using the specified initial conditions and spring constant K=4(N+1)^2.
+Verify the code by comparing the N=1 numerical solution to the exact solution6.Run simulations for N={8, 16, 32} 
+and save mass position data at specific time intervals.
+
+3. Update the solver to include the nonlinear forcing term with alpha does not equal 0 and introduce a safety factor C = 0.5 for the time step size
+Investigate stability limits for C and the behavior when alpha  = -N/10
+
+4. Write Python script to generate plots for the exact vs numerical solutions, as well as 6 sub plots figures showing solution snapshots and time histories
+for the various N and alpha test cases
+
+5. Compile methods,results, and conclusion into a PDF report
